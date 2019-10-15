@@ -9,23 +9,24 @@ import java.util.stream.Collectors;
 
 //Остальное можно найти здесь:
 //https://vertex-academy.com/tutorials/ru/java-8-uchebnik/
+//https://metanit.com/java/tutorial/9.1.php
 
 
-
-
-
-
-
-public class Main {
+public class StreamClass {
     public static List<String> list = Arrays.asList("mr.White", "mr.Pink", "mr.Black");
     public static List<Integer> intlist = Arrays.asList(1, 5, 8, 9);
 
+
     public static void main(String[] args) {
-        Main main = new Main();
-       // main.demonstrateStreamPossibles();
-        //main.forEachDemonstrate();
-       // main.objectToString();
-       // main.streamToOtherCollection();
+        Lambda lambda=new Lambda();
+        StreamClass streamClass = new StreamClass();
+       // streamClass.demonstrateStreamPossibles();
+        //streamClass.forEachDemonstrate();
+       // streamClass.objectToString();
+       // streamClass.streamToOtherCollection();
+        //lambda.lambdaDemonstrate();
+        lambda.lambdaFuncIntDemonstrate();
+
     }
 
     public void getListUsingStream() {

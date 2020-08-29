@@ -3,6 +3,7 @@ package my.examples.com.logic;
 import com.sun.xml.internal.ws.util.StringUtils;
 import my.examples.com.model.User;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -18,12 +19,12 @@ public class StreamClass {
 
 
     public static void main(String[] args) {
-        Lambda lambda=new Lambda();
+        Lambda lambda = new Lambda();
         StreamClass streamClass = new StreamClass();
-       // streamClass.demonstrateStreamPossibles();
+        // streamClass.demonstrateStreamPossibles();
         //streamClass.forEachDemonstrate();
-       // streamClass.objectToString();
-       // streamClass.streamToOtherCollection();
+        // streamClass.objectToString();
+        // streamClass.streamToOtherCollection();
         //lambda.lambdaDemonstrate();
         lambda.lambdaFuncIntDemonstrate();
 
@@ -60,7 +61,7 @@ public class StreamClass {
         intlist.stream().forEach(System.out::println);
 
         //получить значения >=5 и не null
-        intlist.stream().filter(s->s>=5).filter(s -> s != null).forEach(System.out::println);
+        intlist.stream().filter(s -> s >= 5).filter(s -> s != null).forEach(System.out::println);
     }
 
 
@@ -79,22 +80,27 @@ public class StreamClass {
 
     }
 
-    public void streamToOtherCollection(){
+    public void streamToOtherCollection() {
 
         //положить в лист
-        List<String>newList=list.stream().filter(s ->s.startsWith("mr.W")).collect(Collectors.toList());
+        List<String> newList = list.stream().filter(s -> s.startsWith("mr.W")).collect(Collectors.toList());
         System.out.println(newList);
         //Лист в Сет
-        Set<String>newSet=list.stream().collect(Collectors.toSet());
+        Set<String> newSet = list.stream().collect(Collectors.toSet());
         newSet.stream().forEach(System.out::println);
-
-
-
 
     }
 
+    public void reduceExample() throws IOException {
+        Parser parser = new Parser();
+        System.out.println(parser.thingParse()
+                .stream()
+                .map(Thing::getValue)
+                .reduce((x, y) -> String.valueOf((Integer.parseInt(x) + Integer.parseInt(y))))
+                .get());
 
 
+    }
 
 
 }
